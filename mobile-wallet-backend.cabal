@@ -11,18 +11,42 @@ common lang
 
 library
     import: lang
+    extensions:
+        NoImplicitPrelude
+      , OverloadedStrings
+      , GeneralizedNewtypeDeriving
+      , ConstraintKinds
+      , FlexibleContexts
     exposed-modules:  
-        App  
+        App
+      , Domain.Wallet
+      , Logger
+      , Adapter.HTTP.Main
+      , Adapter.CardanoNode.Wallet
+      , Config  
       , CommandLine
     hs-source-dirs:   src
     build-depends:
         base >=4.9 && < 5
+      , classy-prelude  
       , aeson
       , aeson-pretty
       , optparse-applicative
-      , bytestring
-      , containers
       , cardano-api
+      , ouroboros-network
+      , mtl
+      , servant
+      , servant-server
+      , wai
+      , wai-cors
+      , warp
+      , conferer
+      , conferer-dhall
+      , conferer-warp
+      , co-log
+      , text-conversions
+
+
 
 executable mobile-wallet-backend
     import: lang

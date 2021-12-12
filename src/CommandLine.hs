@@ -1,9 +1,11 @@
 module CommandLine (cmdParser, CommandLineConfig(..), Command(..)) where
 
+import           ClassyPrelude
 import           Options.Applicative (Parser, ParserInfo, command, fullDesc,
                                       header, help, helper, hsubparser, info,
                                       long, metavar, option, progDesc, short,
-                                      str, value, (<**>))
+                                      str, value)
+
 
 data Command = StartApp | ShowConfig deriving (Show)
 
